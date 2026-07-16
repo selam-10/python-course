@@ -12,7 +12,10 @@ class Account:
         if amount <= 0:
             raise ValueError("Must be positive")
         self.__balance += amount
-
+    def statement(self):
+        print(f"Owner: {self.owner}")
+        print(f"Account Number: {self.account_number}")
+        print(f"Balance: {self.balance}")
 
 # First Run
 acc = Account("Almaz", "CBE-1001", 1500)
@@ -28,25 +31,31 @@ class SavingsAccount(Account):
     def add_interest(self):
         self.deposit(self.balance * self.rate)
 
+    def statement(self):
+        print("Savings Account")
+        print(f"Owner: {self.owner}")
+        print(f"Account Number: {self.account_number}")
+        print(f"Balance: {self.balance}")
+        print(f"Interest Rate: {self.rate}")
 
 class CurrentAccount(Account):
     def __init__(self, owner, num, balance=0, od=1000):
         super().__init__(owner, num, balance)
         self.overdraft = od
-        # Create a savings account
-s = SavingsAccount("Selamawit", "1001", 1000)
+    def statement(self):
+        print("Current Account")
+        print(f"Owner: {self.owner}")
+        print(f"Account Number: {self.account_number}")
+        print(f"Balance: {self.balance}")
+        print(f"Overdraft Limit: {self.overdraft}")
+        # Polymorphism Example
 
-print("Owner:", s.owner)
-print("Balance:", s.balance)
+bank = [
+    SavingsAccount("Almaz", "CBE-1", 1500),
+    CurrentAccount("Dawit", "CBE-2", 800),
+]
 
-s.deposit(500)
-print("After deposit:", s.balance)
-
-s.add_interest()
-print("After interest:", s.balance)
-
-# Create a current account
-c = CurrentAccount("Abel", "1002", 2000)
-
-c.withdraw(1000)
-print("Current account balance:", c.balance)
+for acc in bank:
+    acc.deposit(100)
+    acc.statement()
+    print("----------------")
