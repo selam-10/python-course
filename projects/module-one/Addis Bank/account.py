@@ -1,10 +1,13 @@
+from collections import deque
+
+
 class Account:
     def __init__(self, owner, number, balance=0):
         self.owner = owner
         self.account_number = number
         self.__balance = balance
         self.observers = []
-        self.history = []  # Transaction history stack
+        self.history = []
 
     @property
     def balance(self):
@@ -30,7 +33,6 @@ class Account:
         print(f"Account Number: {self.account_number}")
         print(f"Balance: {self.balance}")
 
-    # Observer methods
     def subscribe(self, observer):
         self.observers.append(observer)
 
@@ -38,7 +40,6 @@ class Account:
         for observer in self.observers:
             observer.update(event)
 
-    # Stack (Undo)
     def undo_last(self):
         if self.history:
             transaction = self.history.pop()
@@ -76,7 +77,6 @@ class CurrentAccount(Account):
         print(f"Overdraft Limit: {self.overdraft}")
 
 
-# Factory Pattern
 class AccountFactory:
 
     @staticmethod
@@ -91,7 +91,6 @@ class AccountFactory:
         raise ValueError(f"Unknown type: {kind}")
 
 
-# Observer Pattern
 class SMSAlert:
 
     def update(self, event):
@@ -104,7 +103,6 @@ class AuditLog:
         print(f"[Log] {event}")
 
 
-# Singleton Pattern
 class BankConfig:
 
     _instance = None
@@ -112,7 +110,6 @@ class BankConfig:
     def __new__(cls):
 
         if cls._instance is None:
-
             cls._instance = super().__new__(cls)
             cls._instance.interest_rate = 0.05
             cls._instance.overdraft_limit = 1000
@@ -120,7 +117,6 @@ class BankConfig:
         return cls._instance
 
 
-# Day 07 - Account Registry
 class AccountRegistry:
 
     def __init__(self):
@@ -137,8 +133,104 @@ class AccountRegistry:
             account.statement()
             print("----------------")
 
+    def top_by_balance(self, n):
+        return sorted(
+            self.accounts.values(),
+            key=lambda account: account.balance,
+            reverse=True
+        )[:n]
 
-# Testing Day 07
+    def find_by_number(self, number):
+
+        accounts = sorted(
+            self.accounts.values(),
+            key=lambda account: account.account_number
+        )
+
+        left = 0
+        right = len(accounts) - 1
+
+        while left <= right:
+
+            mid = (left + right) // 2
+
+            if accounts[mid].account_number == number:
+                return accounts[mid]
+
+            elif accounts[mid].account_number < number:
+                left = mid + 1
+
+            else:
+                right = mid - 1
+
+        return None
+
+    def total_transactions(self, accounts=None):
+
+        if accounts is None:
+            accounts = list(self.accounts.values())
+
+        if len(accounts) == 0:
+            return 0
+
+        return accounts[0].balance + self.total_transactions(accounts[1:])
+
+
+# -----------------------------
+# DAY 09 - Branch Tree
+# -----------------------------
+
+class Branch:
+
+    def __init__(self, name):
+        self.name = name
+        self.children = []
+        self.accounts = []
+
+    def add_branch(self, branch):
+        self.children.append(branch)
+
+    def add_account(self, account):
+        self.accounts.append(account)
+
+    def total_balance(self):
+
+        total = 0
+
+        for account in self.accounts:
+            total += account.balance
+
+        for child in self.children:
+            total += child.total_balance()
+
+        return total
+        # -----------------------------
+# DAY 09 - Breadth First Search
+# -----------------------------
+
+def bfs(graph, start):
+
+    visited = set()
+    queue = deque([start])
+
+    while queue:
+
+        node = queue.popleft()
+
+        if node not in visited:
+
+            print(node)
+
+            visited.add(node)
+
+            for neighbour in graph.get(node, []):
+                if neighbour not in visited:
+                    queue.append(neighbour)
+
+
+# -----------------------------
+# Testing Day 09
+# -----------------------------
 
 config = BankConfig()
 
@@ -163,11 +255,19 @@ acc2 = AccountFactory.create(
     2000
 )
 
+acc3 = AccountFactory.create(
+    "savings",
+    "Selam",
+    "CBE-3",
+    3500
+)
+
 acc1.subscribe(SMSAlert())
 acc1.subscribe(AuditLog())
 
 registry.add(acc1)
 registry.add(acc2)
+registry.add(acc3)
 
 acc1.deposit(500)
 acc1.withdraw(200)
@@ -182,6 +282,7 @@ registry.list_all()
 print("----------------")
 
 print("Find Account:")
+
 found = registry.find("CBE-1")
 
 if found:
@@ -193,3 +294,77 @@ acc1.undo_last()
 
 print("History After Undo:")
 print(acc1.history)
+
+print("----------------")
+
+print("Top 2 Accounts by Balance")
+
+top_accounts = registry.top_by_balance(2)
+
+for account in top_accounts:
+    print(account.owner, "-", account.balance)
+
+print("----------------")
+
+print("Binary Search")
+
+result = registry.find_by_number("CBE-2")
+
+if result:
+    result.statement()
+else:
+    print("Account not found")
+
+print("----------------")
+
+print("Recursive Total Balance")
+
+print(registry.total_transactions())
+
+print("----------------")
+
+# -----------------------------
+# Branch Tree
+# -----------------------------
+
+head_office = Branch("Head Office")
+
+addis_region = Branch("Addis Region")
+adama_region = Branch("Adama Region")
+
+bole_branch = Branch("Bole Branch")
+piassa_branch = Branch("Piassa Branch")
+main_branch = Branch("Main Branch")
+
+head_office.add_branch(addis_region)
+head_office.add_branch(adama_region)
+
+addis_region.add_branch(bole_branch)
+addis_region.add_branch(piassa_branch)
+
+adama_region.add_branch(main_branch)
+
+bole_branch.add_account(acc1)
+piassa_branch.add_account(acc2)
+main_branch.add_account(acc3)
+
+print("Bank Total Balance")
+
+print(head_office.total_balance())
+
+print("----------------")
+
+# -----------------------------
+# Transfer Graph
+# -----------------------------
+
+transfers = {
+    "CBE-1": ["CBE-2", "CBE-3"],
+    "CBE-2": ["CBE-4"],
+    "CBE-3": ["CBE-4"],
+    "CBE-4": []
+}
+
+print("Accounts Reachable From CBE-1")
+
+bfs(transfers, "CBE-1")
