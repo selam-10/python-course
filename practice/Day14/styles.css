@@ -1,0 +1,161 @@
+:root{
+    --gold:#d4af37;
+    --brown:#5a2d0c;
+    --cream:#fff8e7;
+    --white:#ffffff;
+    --shadow:rgba(0,0,0,.2);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    line-height:1.6;
+    background:var(--cream);
+}
+
+/* PAGE GRID */
+
+.page{
+    display:grid;
+    grid-template-rows:auto 1fr auto;
+    min-height:100vh;
+}
+
+/* NAVBAR */
+
+.navbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:var(--brown);
+
+    color:var(--white);
+
+    padding:20px;
+
+    position:sticky;
+
+    top:0;
+}
+
+.navbar nav a{
+
+    color:var(--white);
+
+    text-decoration:none;
+
+    margin-left:20px;
+
+    font-weight:bold;
+}
+
+.navbar nav a:hover{
+
+    color:var(--gold);
+
+}
+
+/* HERO */
+
+.hero{
+
+    text-align:center;
+
+    padding:50px 20px;
+}
+
+.hero h2{
+
+    color:var(--brown);
+
+    margin-bottom:15px;
+}
+
+/* MENU GRID */
+
+.menu{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+    padding:20px;
+}
+
+/* CARD */
+
+.card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    background:var(--white);
+
+    padding:20px;
+
+    border-top:8px solid var(--gold);
+
+    border-radius:10px;
+
+    box-shadow:0 5px 15px var(--shadow);
+
+    transition:.3s;
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+}
+
+.card h3{
+
+    color:var(--brown);
+
+    margin-bottom:10px;
+}
+
+.card p{
+
+    margin-bottom:20px;
+}
+
+.price{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:var(--brown);
+}
+
+.price::before{
+
+    content:"ETB ";
+}
+
+/* FOOTER */
+
+footer{
+
+    text-align:center;
+
+    background:var(--brown);
+
+    color:var(--white);
+
+    padding:20px;
+}

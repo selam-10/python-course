@@ -1,0 +1,126 @@
+/* CSS Variables */
+:root {
+    --gold: #d4af37;
+    --brown: #5a2d0c;
+    --cream: #fff8e7;
+}
+
+
+/* Global Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--cream);
+    color: var(--brown);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+/* Menu Card */
+.menu-card {
+
+    width: 350px;
+
+    padding: 25px;
+
+    border: 2px solid var(--gold);
+
+    border-top: 8px solid var(--gold);
+
+    background-color: var(--cream);
+
+    border-radius: 10px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+    transition: transform 0.3s ease;
+}
+
+
+/* Hover pseudo-class */
+.menu-card:hover {
+
+    transform: translateY(-10px);
+
+}
+
+
+/* Heading */
+.menu-card h2 {
+
+    color: var(--brown);
+
+    margin-bottom: 10px;
+
+}
+
+
+/* Description */
+.description {
+
+    margin-bottom: 15px;
+
+}
+
+
+/* Ingredients list */
+
+.ingredients {
+
+    list-style: none;
+
+    margin: 15px 0;
+
+}
+
+
+/* Zebra stripe using nth-child */
+
+.ingredients li:nth-child(even) {
+
+    background-color: var(--gold);
+
+}
+
+
+/* List items */
+
+.ingredients li {
+
+    padding: 8px;
+
+}
+
+
+/* Price */
+
+.price {
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    color: var(--brown);
+
+}
+
+
+/* Pseudo-element */
+
+.price::before {
+
+    content: "ETB ";
+
+}
