@@ -1,0 +1,250 @@
+/* ======================================
+   GENERAL
+   ====================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px;
+
+    font-family: Arial, sans-serif;
+
+    background-color: #f4f7f5;
+    color: #222;
+}
+
+
+/* ======================================
+   MAIN CONTAINER
+   ====================================== */
+
+.container {
+    width: 90%;
+    max-width: 650px;
+
+    margin: 30px auto;
+
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ======================================
+   HEADER
+   ====================================== */
+
+header {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+header h1 {
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #666;
+}
+
+
+/* ======================================
+   FORM
+   ====================================== */
+
+.form-section h2,
+.shopping-section h2 {
+    margin-bottom: 15px;
+}
+
+form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+}
+
+input:focus {
+    outline: 2px solid #198754;
+}
+
+
+/* ======================================
+   ADD BUTTON
+   ====================================== */
+
+form button {
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background-color: #198754;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #146c43;
+}
+
+
+/* ======================================
+   SHOPPING LIST
+   ====================================== */
+
+.shopping-section {
+    margin-top: 35px;
+}
+
+#list {
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+}
+
+#list li {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px;
+
+    margin-bottom: 10px;
+
+    background-color: #f8f9fa;
+
+    border-left: 4px solid #198754;
+
+    border-radius: 7px;
+}
+
+
+/* ======================================
+   ITEM INFORMATION
+   ====================================== */
+
+.item-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    flex: 1;
+}
+
+.item-name {
+    font-weight: bold;
+
+    font-size: 17px;
+}
+
+.item-price {
+    color: #198754;
+
+    font-size: 14px;
+}
+
+
+/* ======================================
+   BOUGHT STATE
+   ====================================== */
+
+#list li.bought {
+    text-decoration: line-through;
+
+    opacity: 0.55;
+}
+
+
+/* ======================================
+   DELETE BUTTON
+   ====================================== */
+
+.del {
+    padding: 8px 12px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background-color: #dc3545;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.del:hover {
+    background-color: #b02a37;
+}
+
+
+/* ======================================
+   TOTAL
+   ====================================== */
+
+.total-section {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 25px;
+
+    padding: 18px;
+
+    background-color: #e9f7ef;
+
+    border-radius: 8px;
+
+    font-size: 20px;
+}
+
+.total-section strong {
+    color: #198754;
+}
