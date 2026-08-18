@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+}
+
+.container {
+    width: 90%;
+    max-width: 700px;
+    margin: 40px auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #666;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #222;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #444;
+}
+
+.status {
+    padding: 12px;
+    text-align: center;
+    border-radius: 6px;
+    background: #eee;
+}
+
+.status.loading {
+    background: #fff3cd;
+}
+
+.status.error {
+    background: #f8d7da;
+    color: #842029;
+}
+
+.status.success {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#watchlist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#watchlist li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 8px;
+    background: #f1f1f1;
+    border-radius: 6px;
+}
+
+#watchlist button {
+    width: auto;
+    margin: 0;
+    padding: 7px 12px;
+    background: #c62828;
+}
+
+#watchlist button:hover {
+    background: #a91f1f;
+}
+
+.empty {
+    display: block !important;
+    text-align: center;
+    color: #777;
+    background: transparent !important;
+}
