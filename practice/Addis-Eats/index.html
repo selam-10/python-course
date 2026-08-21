@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Addis Eats</title>
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         Header
+    ========================== -->
+
+    <header class="site-header">
+
+        <div class="container header-content">
+
+            <div>
+
+                <h1>Addis Eats</h1>
+
+                <p>
+                    Ethiopian Food • Addis Ababa
+                </p>
+
+            </div>
+
+
+            <div class="cart-summary">
+
+                <span>🛒 Cart</span>
+
+                <span
+                    id="cart-count"
+                    class="cart-count"
+                >
+                    0
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <main class="container">
+
+
+        <!-- =========================
+             Search and Filter
+        ========================== -->
+
+        <section class="controls">
+
+            <div class="search-group">
+
+                <label for="search">
+                    Search dishes
+                </label>
+
+                <input
+                    type="search"
+                    id="search"
+                    placeholder="Search for a dish..."
+                >
+
+            </div>
+
+
+            <div class="category-group">
+
+                <label for="category">
+                    Category
+                </label>
+
+                <select id="category">
+
+                    <option value="All">
+                        All Categories
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             Main Content
+        ========================== -->
+
+        <div class="app-layout">
+
+
+            <!-- Menu -->
+
+            <section class="menu-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>
+                            Our Menu
+                        </h2>
+
+                        <p>
+                            Enjoy authentic Ethiopian dishes.
+                        </p>
+
+                    </div>
+
+                    <p id="menu-status"></p>
+
+                </div>
+
+
+                <div
+                    id="menu-grid"
+                    class="menu-grid"
+                ></div>
+
+            </section>
+
+
+
+            <!-- Cart -->
+
+            <aside class="cart-section">
+
+                <div class="cart-header">
+
+                    <h2>
+                        Your Cart
+                    </h2>
+
+                </div>
+
+
+                <div id="cart-items">
+
+                    <p class="empty-cart">
+                        Your cart is empty.
+                    </p>
+
+                </div>
+
+
+                <div class="cart-total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong id="cart-total">
+                        0.00 ETB
+                    </strong>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="checkout-button"
+                    class="checkout-button"
+                    disabled
+                >
+                    Checkout
+                </button>
+
+            </aside>
+
+        </div>
+
+
+
+        <!-- =========================
+             Checkout
+        ========================== -->
+
+        <section
+            id="checkout-section"
+            class="checkout-section hidden"
+        >
+
+            <h2>
+                Checkout
+            </h2>
+
+            <p class="section-description">
+                Enter your information to complete your order.
+            </p>
+
+
+            <form id="checkout-form">
+
+
+                <div class="form-group">
+
+                    <label for="customer-name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customer-name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="customer-phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customer-phone"
+                        placeholder="09XXXXXXXX"
+                        required
+                    >
+
+                    <small>
+                        Example: 0912345678
+                    </small>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="customer-address">
+                        Delivery Address
+                    </label>
+
+                    <textarea
+                        id="customer-address"
+                        placeholder="Enter your delivery address"
+                        rows="4"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <p id="checkout-message"></p>
+
+
+                <button
+                    type="submit"
+                    class="place-order-button"
+                >
+                    Place Order
+                </button>
+
+            </form>
+
+        </section>
+
+
+
+        <!-- =========================
+             Order Confirmation
+        ========================== -->
+
+        <section
+            id="order-confirmation"
+            class="order-confirmation hidden"
+        ></section>
+
+
+
+        <!-- =========================
+             Order History
+        ========================== -->
+
+        <section
+            id="order-history"
+            class="order-history"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        Order History
+                    </h2>
+
+                    <p>
+                        Your previous Addis Eats orders.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="order-history-list">
+
+                <p class="empty-history">
+                    You have no previous orders.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         Footer
+    ========================== -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <p>
+                &copy; 2026 Addis Eats.
+                Ethiopian food made simple.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

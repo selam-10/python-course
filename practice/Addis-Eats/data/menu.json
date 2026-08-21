@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "Doro Wat",
+        "category": "Main",
+        "price": 240,
+        "spicy": true,
+        "description": "A rich and spicy Ethiopian chicken stew made with berbere, onions, garlic, and traditional spices, served with injera.",
+        "image": "images/Doro wattt.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Shiro Wat",
+        "category": "Main",
+        "price": 150,
+        "spicy": true,
+        "description": "A smooth and flavorful chickpea stew cooked with onions, garlic, berbere, and Ethiopian spices, usually enjoyed with injera.",
+        "image": "images/shiro.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Beef Tibs",
+        "category": "Main",
+        "price": 280,
+        "spicy": true,
+        "description": "Tender pieces of beef sautéed with onions, peppers, tomatoes, garlic, and Ethiopian spices for a rich and savory flavor.",
+        "image": "images/beef tibs.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Kitfo",
+        "category": "Main",
+        "price": 300,
+        "spicy": false,
+        "description": "A famous Ethiopian dish made from finely minced beef seasoned with spiced clarified butter and mitmita, traditionally served with ayib and greens.",
+        "image": "images/kitfo.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Vegetable Firfir",
+        "category": "Vegetarian",
+        "price": 130,
+        "spicy": false,
+        "description": "Torn pieces of injera mixed with a flavorful vegetable sauce, onions, tomatoes, and Ethiopian spices for a comforting vegetarian meal.",
+        "image": "images/firfir.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Fasting Bayaynet",
+        "category": "Vegetarian",
+        "price": 180,
+        "spicy": true,
+        "description": "A colorful combination of vegetarian Ethiopian dishes such as lentils, vegetables, and spicy sauces served together on injera.",
+        "image": "images/beyaynet.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Sambusa",
+        "category": "Starter",
+        "price": 80,
+        "spicy": true,
+        "description": "Crispy pastry filled with seasoned lentils, onions, and spices, making it a popular Ethiopian snack or starter.",
+        "image": "images/sambusa.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Ethiopian Coffee",
+        "category": "Drink",
+        "price": 60,
+        "spicy": false,
+        "description": "Freshly roasted and brewed Ethiopian coffee with a rich aroma and bold flavor, traditionally prepared and served in small cups.",
+        "image": "images/Ethiopian coffee.jpg"
+    }
+]
